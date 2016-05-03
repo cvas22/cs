@@ -8,7 +8,14 @@
 <?php echo "LIST OF USERS";?>
 </h4>
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: Srinivas
+ * Date: 3/15/2016
+ * Time: 1:57 AM
+ *
+ * This is a database connection service script
+ */
 
 // connect to the database
 include('connect.php');
