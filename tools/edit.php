@@ -66,8 +66,8 @@
          else
          {
              // save the data to the database
-             $SQLQuery = "UPDATE stats_geo SET zip='$zip', city='$city', county='$county', state='$state' , date_started = $date_started WHERE id='$id' ";
-             $result = $conn->query($SQLQuery);
+             $SQLQuery = "UPDATE stats_geo SET zip='$zip', city='$city', county='$county', state='$state' , date_started = '$date_started' WHERE id='$id' ";
+			 $result = $conn->query($SQLQuery);
              if(!$result)
              {
                  echo $SQLQuery;
