@@ -1,3 +1,9 @@
+
+/*
+Author: Srinivas
+Description: Creates the stats_acres database table
+*/
+
 CREATE TABLE `stats_acres` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `stats_geo_id` int(11) DEFAULT NULL,

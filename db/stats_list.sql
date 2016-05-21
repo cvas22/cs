@@ -1,3 +1,8 @@
+/*
+Author: Srinivas
+Description: Creates the stats_list database table
+*/
+
 CREATE TABLE `stats_list` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `listtype` varchar(9) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
