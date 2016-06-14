@@ -4,11 +4,9 @@
  * User: Akshaya Chandrasekaran, Savan Kumar Muniraju
  * Date: 6/4/2016
  */
-$hn='localhost';
-$db='dataservice_wfrmls';
-$un='root';
-$pw='root';
-$conn = new mysqli($hn, $un, $pw, $db);
+// Edited by Srinivas
+include "tools/connect.php";
+
 $query_city = "select distinct state from stats_geo";
 $result_city = $conn->query($query_city);
 if(!$result_city) die($conn->error);
