@@ -20,7 +20,7 @@ $result_bed = $conn->query($SQLQuery);
 
 
 //Create a file pointer connected to the output stream
-$output = fopen('../dat/barchart_slc.csv', 'w');
+$output = fopen('../dat/barchart_slc_high.csv', 'w');
 
 // Output the column headings
 fputcsv($output, array('bed_count', 'average_price'));
@@ -31,8 +31,8 @@ while($data=mysqli_fetch_array($result_bed, MYSQLI_NUM))
 //echo $data[0] . '<br>';
 fwrite($output, $data[0] . ',');
 
-//For each bed count in Salt Lake county, find the average bed price
-$SelectQ = "SELECT ceil(avg(average)) FROM stats_bed WHERE COUNTY='Salt Lake' and bed_count = $data[0];";
+//For each bed count in Salt Lake county, find the average highest bed price
+$SelectQ = "SELECT ceil(avg(highest)) FROM stats_bed WHERE COUNTY='Salt Lake' and bed_count = $data[0];";
 	
 $res = $conn->query($SelectQ);
 
@@ -50,7 +50,7 @@ fwrite($output, round($average[0]/10000, 2) . "\n");
 $conn->close();
 fclose($output);
 echo "<h1> \n";
-echo "Average Price per bedroom in Salt Lake County <br> <br>";
+echo "Highest Price per bedroom in Salt Lake County <br> <br>";
 echo "</h1>";
 ?>
 
@@ -79,7 +79,7 @@ echo "</h1>";
         .append("g")
         .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
-    d3.csv("../dat/barchart_slc.csv", function(error, data) {
+    d3.csv("../dat/barchart_slc_high.csv", function(error, data) {
         data.forEach(function(d) {
             d.bed_count = +d.bed_count;
             d.average_price = +d.average_price
